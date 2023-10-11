@@ -51,8 +51,11 @@ header {
     flex-direction: row;
     width: 100%;
     background-color:#ffffff;
-    height: 100px;
+    height: 80px;
     margin-bottom: O;
+    position: fixed;
+    top: 0;
+    z-index: 1;
     
 }
 
