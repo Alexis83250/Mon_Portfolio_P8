@@ -1,422 +1,94 @@
-function photosFilterss() {
-  //console.log(photos);
-  return photos;
+function hideNavBar() {
+  const navBar = document.querySelector("header");
+  navBar.style.display = "none";
 }
 
-//Création d'une function qui genere les photos
-async function genererPhotos(photo) {
-  const photos = typeof photo === "undefined" ? await photosFilterss() : photo;
-  //Création d'une boucle qui va prendre toutes les photos
-
-  for (let i = 0; i < photos.length; i++) {
-    // Création des balises
-
-    const article = photos[i];
-
-    const sectionGallery = document.querySelector(".gallery");
-
-    const divElement = document.createElement("div");
-    divElement.classList.add("gallery-item");
-
-    const imageElement = document.createElement("img");
-    divElement.classList.add("imageId");
-    imageElement.src = article.image;
-    imageElement.alt = article.alt;
-    imageElement.id = article.id;
-    imageElement.style.width = "440px";
-    imageElement.style.height = "440px";
-
-    //Ajout de articleElement dans sectionGallery
-
-    sectionGallery.appendChild(divElement);
-
-    //Ajout de nos balises au DOM
-    divElement.appendChild(imageElement);
-
-    //MODAL--------------------------------
-    // OUVRIR MODAL----
-    imageElement.addEventListener("click", openModal);
-    //console.log(imageElement);
-
-    //MODAL--------------------------------
-  }
-}
-//permet de generer les photos non filtrés par default
-genererPhotos();
-
-//FILTRES---------------------------------------
-
-async function photosFilterIIIs() {
-  //const reponseFilt = await fetch("./assets/filtres.json");
-  //const filters = await reponseFilt.json();
-  const filters = [
-    {
-      id: 0,
-      name: "Tous",
-    },
-
-    {
-      id: 1,
-      name: "Concerts",
-    },
-
-    {
-      id: 2,
-      name: "Entreprise",
-    },
-
-    {
-      id: 3,
-      name: "Mariage",
-    },
-
-    {
-      id: 4,
-      name: "Portraits",
-    },
-  ];
-  return filters;
+// Fonction pour afficher la barre de navigation
+function showNavBar() {
+  const navBar = document.querySelector("header");
+  navBar.style.display = "flex";
 }
 
-async function genererFilters() {
-  const filters = await photosFilterIIIs();
-  //console.log(filters);
+document.addEventListener("DOMContentLoaded", function () {
+  // Sélectionnez l'élément HTML avec l'ID "projectGallery"
+  const projectGallery = document.getElementById("projectGallery");
 
-  for (let i = 0; i < filters.length; i++) {
-    // Création des balises
-    const myFilter = filters[i];
+  // Sélectionnez la modal et le contenu de la modal à un niveau supérieur
+  const modal = document.getElementById("myModal");
+  const modalImg = document.getElementById("modal-content");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDescription = document.getElementById("modal-description");
+  const modalImages = document.querySelector(".modal-images");
 
-    const sectionFilter = document.querySelector(".filter");
-
-    const divEl = document.createElement("div");
-    divEl.classList.add("filterChoice");
-
-    divEl.dataset.id = [i];
-    divEl.innerText = myFilter.name;
-    if (myFilter.name === "Tous") {
-      divEl.classList.add("activedButton");
+  // Gestionnaire d'événements pour fermer la modal en cliquant en dehors
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none"; // Fermez la modal en cliquant en dehors
+      showNavBar(); // Affichez à nouveau la barre de navigation
     }
-
-    sectionFilter.appendChild(divEl);
-  }
-  selectionFilters();
-}
-//permet de generer les photos non filtrés par default
-genererFilters();
-
-//----------FILTRES--------------------
-
-async function selectionFilters() {
-  const photos = await photosFilterss();
-  Array.from(document.querySelectorAll(".filterChoice")).forEach((el) => {
-    el.addEventListener("click", (event) => {
-      const categoryId = event.target.dataset.id;
-      //console.log("Category", categoryId);
-      Array.from(document.querySelectorAll(".filterChoice")).forEach((el) => {
-        el.classList.remove("activedButton");
-      });
-      event.target.classList.add("activedButton");
-      if (categoryId <= 0) {
-        document.querySelector(".gallery").innerHTML = "";
-        genererPhotos();
-      } else {
-        const photosFiltrees4 = photos.filter(function (photo) {
-          return photo.categoryId == categoryId;
-        });
-        const nouveauTableauFiltres = photosFiltrees4.map((element, index) => ({
-          id: index + 1,
-          oldIndex: element.id,
-          image: element.image,
-          alt: element.alt,
-          categoryId: element.categoryId,
-          category: element.category,
-        }));
-        document.querySelector(".gallery").innerHTML = "";
-        genererPhotos(nouveauTableauFiltres);
-        //console.log(nouveauTableauFiltres);
-      }
-    });
   });
-}
+  const closeBtn = document.querySelector(".close");
 
-//------------Modif couleur filtres-----------
+  // Ajoutez un gestionnaire d'événements pour le clic sur le bouton Close
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none"; // Fermez la modal
+    showNavBar(); // Affichez à nouveau la barre de navigation
+  });
 
-//----------------CAROUSEL-----------------------
+  fetch("/photos.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.slice(0, 5).forEach((project, index) => {
+        // Créez un élément de div pour le projet
+        const projectDiv = document.createElement("div");
+        projectDiv.classList.add("project");
 
-let firstSlide = 0;
-const next = document.querySelector("#boutonDroite");
-const prev = document.querySelector("#boutonGauche");
-const btnNum1 = document.querySelector("#bouton1");
-const btnNum2 = document.querySelector("#bouton2");
-const btnNum3 = document.querySelector("#bouton3");
+        // Créez un élément d'image pour la première image du projet
+        const img = document.createElement("img");
+        img.src = project.images[0].img;
+        img.alt = project.images[0].alt;
+        img.classList.add("project-image");
 
-//console.log(carousel());
+        // Ajoutez l'image à la div du projet
+        projectDiv.appendChild(img);
 
-async function genererCarousel() {
-  //slides.forEach((element, index) => {});
-  const slides = [
-    {
-      id: 1,
-      image: "./assets/images/slider/ryoji-iwata.webp",
-      alt: "Homme qui marche pour aller au travail",
-    },
+        // Créez un élément de titre pour le projet
+        const title = document.createElement("h3");
+        title.textContent = project.title || "Titre du projet"; // Utilisez le titre du projet s'il existe
+        title.classList.add("project-title");
 
-    {
-      id: 2,
-      image: "./assets/images/slider/nicholas-green.webp",
-      alt: "Photo du public joyeux à un concert",
-    },
+        // Ajoutez le titre à la div du projet
+        projectDiv.appendChild(title);
 
-    {
-      id: 3,
-      image: "./assets/images/slider/edward-cisneros.webp",
-      alt: "Photo d'un couple de marié qui s'embrassent",
-    },
-  ];
-  const mySlides = slides[firstSlide];
+        // Ajoutez la div du projet à la galerie
+        projectGallery.appendChild(projectDiv);
 
-  const sectionCarousel = document.querySelector(".carousel");
+        // Si l'index est pair, déplacez le projet à droite
+        if (index % 2 === 1) {
+          projectDiv.style.order = 1;
+        }
 
-  const divElement = document.createElement("div");
-  divElement.classList.add("carouselImage");
+        // Bouclez sur chaque image pour ajouter un gestionnaire d'événements
+        img.addEventListener("click", function () {
+          modal.style.display = "block"; // Affichez la modal
+          hideNavBar(); // Masquez la barre de navigation
+          modalTitle.textContent = project.title || "Titre du projet"; // Mettez à jour le titre de la modal
+          modalDescription.textContent =
+            project.Description || "Description non disponible"; // Mettez à jour la description de la modal
+          modalImages.innerHTML = ""; // Effacez le contenu précédent
 
-  const imageElement = document.createElement("img");
-  imageElement.src = mySlides.image;
-  imageElement.alt = mySlides.alt;
-  imageElement.classList.add("carouselImg");
-
-  //Ajout de articleElement dans sectionGallery
-  sectionCarousel.appendChild(divElement);
-  divElement.appendChild(imageElement);
-  //console.log(slides);
-  //Ajout de nos balises au DOM
-  if (firstSlide == 0) {
-    btnNum1.style.opacity = "1";
-    btnNum2.style.opacity = "0.5";
-    btnNum3.style.opacity = "0.5";
-  } else if (firstSlide == 1) {
-    btnNum1.style.opacity = "0.5";
-    btnNum2.style.opacity = "1";
-    btnNum3.style.opacity = "0.5";
-  } else {
-    btnNum1.style.opacity = "0.5";
-    btnNum2.style.opacity = "0.5";
-    btnNum3.style.opacity = "1";
-  }
-}
-//permet de generer les photos non filtrés par default
-genererCarousel();
-
-next.addEventListener("click", photoSuivante);
-function photoSuivante() {
-  if (firstSlide >= 2) {
-    firstSlide = 0;
-    document.querySelector(".carouselImage").remove();
-    genererCarousel();
-  } else {
-    firstSlide = firstSlide + 1;
-    document.querySelector(".carouselImage").remove();
-    genererCarousel();
-  }
-}
-
-setInterval(photoSuivante, 7000);
-
-// Photo precedente-----------------------
-
-prev.addEventListener("click", () => {
-  if (firstSlide <= 0) {
-    firstSlide = 2;
-    document.querySelector(".carouselImage").remove();
-    genererCarousel();
-  } else {
-    firstSlide = firstSlide - 1;
-    document.querySelector(".carouselImage").remove();
-    genererCarousel();
-  }
-});
-
-//--------------BTN CAROUSEL -----------------
-
-btnNum1.addEventListener("click", () => {
-  firstSlide = 0;
-  document.querySelector(".carouselImage").remove();
-  genererCarousel();
-  btnNum1.style.opacity = "1";
-  btnNum2.style.opacity = "0.5";
-  btnNum3.style.opacity = "0.5";
-});
-
-btnNum2.addEventListener("click", () => {
-  firstSlide = 1;
-  document.querySelector(".carouselImage").remove();
-  genererCarousel();
-  btnNum1.style.opacity = "0.5";
-  btnNum2.style.opacity = "1";
-  btnNum3.style.opacity = "0.5";
-});
-
-btnNum3.addEventListener("click", () => {
-  firstSlide = 2;
-  document.querySelector(".carouselImage").remove();
-  genererCarousel();
-  btnNum1.style.opacity = "0.5";
-  btnNum2.style.opacity = "0.5";
-  btnNum3.style.opacity = "1";
-});
-//--------------BTN CAROUSEL -----------------
-
-// -------------------MODAL------------------
-
-// OUVRIR MODAL----
-const target = document.querySelector("#modal1");
-const stopPropagation = function (e) {
-  e.stopPropagation();
-};
-
-const openModal = function (e) {
-  e.preventDefault();
-
-  const monIdPhoto = parseInt(e.target.getAttribute("id"));
-  const catId = parseInt(document.querySelector(".activedButton").dataset.id);
-
-  //console.log(monIdPhoto);
-  target.style.display = null;
-  target.setAttribute("aria-hidden", "false");
-  target.setAttribute("aria-modal", "true");
-  document
-    .querySelector(".modal-wrapper")
-    .addEventListener("click", stopPropagation);
-  if (catId === null || catId === undefined || catId === 0) {
-    //catId = 0;
-    genererPhotosModal(monIdPhoto, 0);
-  } else {
-    genererPhotosModal(monIdPhoto, catId);
-  }
-};
-
-// CLOSE MODAL-----------
-
-const closeModal = function (e) {
-  e.preventDefault();
-
-  document
-    .querySelector(".modal-wrapper")
-    .removeEventListener("click", stopPropagation);
-  target.style.display = "none";
-  target.setAttribute("aria-hidden", "true");
-  target.setAttribute("aria-modal", "false");
-  document.querySelector(".modaleDivImage").remove();
-};
-
-document.querySelector(".modal").addEventListener("click", closeModal);
-
-//----------GENERER PHOTOS MODAL---------
-
-//let IdPhoto = 0;
-let nbMedias = 0;
-
-const btnModal1 = document.querySelector("#btn-gModal");
-const btnModal2 = document.querySelector("#btn-dModal");
-let catId = 0;
-
-let maPhotoFiltre;
-
-async function genererPhotosModal(IdPhoto, catId) {
-  const photosModal = await photosFilterss();
-
-  //console.log(photosModal.length);
-
-  //const isLargeNumber = (element) => element.id === IdPhoto;
-
-  maPhotoFiltre = await photosFilterss();
-  //console.log(IdPhoto);
-  if (catId !== 0) {
-    // Si catId est égal à 0, appelez la fonction photosFilters {
-    // Sinon, utilisez la fonction filter pour filtrer les photos par categoryId
-    maPhotoFiltre = photosModal.filter(
-      (el) => el.categoryId === parseInt(catId)
-    );
-  }
-  const tableauAvecNouvelIndex = maPhotoFiltre.map((element, index) => ({
-    id: index + 1,
-    oldIndex: element.id,
-    image: element.image,
-    alt: element.alt,
-    categoryId: element.categoryId,
-    category: element.category,
-  }));
-
-  //console.log(tableauAvecNouvelIndex);
-  let myPhotosModale = tableauAvecNouvelIndex.find(
-    (element) => element.id === parseInt(IdPhoto)
-  );
-  //IdPhoto = myPhotosModale.id;
-
-  nbMedias = tableauAvecNouvelIndex.length;
-
-  const sectionModal = document.querySelector(".contenuModal");
-  const divElement = document.createElement("div");
-  divElement.classList.add("modaleDivImage");
-
-  const imageElement = document.createElement("img");
-  imageElement.src = myPhotosModale.image;
-  imageElement.alt = myPhotosModale.alt;
-  imageElement.id = myPhotosModale.id;
-  imageElement.classList.add("modaleImage");
-
-  // Vider la sectionModal avant d'ajouter de nouveaux éléments
-  sectionModal.innerHTML = "";
-
-  //Ajout de articleElement dans sectionGallery
-  sectionModal.appendChild(divElement);
-  divElement.appendChild(imageElement);
-  console.log(IdPhoto);
-}
-
-//console.log(IdPhoto);
-//console.log(photosModal[catId]);
-
-//permet de generer les photos non filtrés par default
-
-// Photo suivante-----------------------
-function nextPhotos(catId) {
-  IdPhoto = document.querySelector(".modaleImage").id;
-  console.log(nbMedias, IdPhoto, catId);
-  //console.log(leBonId);
-  IdPhoto++;
-  if (IdPhoto > nbMedias) {
-    IdPhoto = 1;
-  }
-  document.querySelector(".modaleImage").remove();
-  genererPhotosModal(IdPhoto, catId);
-}
-//btnModal2.addEventListener("click", nextPhotos(IdPhoto, catId));
-btnModal2.addEventListener("click", function (event) {
-  // Empêcher l'exécution par défaut du bouton
-  event.preventDefault();
-  const catId = parseInt(document.querySelector(".activedButton").dataset.id);
-
-  nextPhotos(catId);
-});
-
-function prevPhotos(catId) {
-  IdPhoto = document.querySelector(".modaleImage").id;
-
-  console.log(nbMedias, IdPhoto, catId);
-  //console.log(maPhotoFiltre);
-  IdPhoto--;
-  if (IdPhoto <= 0) {
-    IdPhoto = nbMedias;
-  }
-  document.querySelector(".modaleImage").remove();
-  genererPhotosModal(IdPhoto, catId);
-}
-//btnModal2.addEventListener("click", nextPhotos(IdPhoto, catId));
-btnModal1.addEventListener("click", function (event) {
-  // Empêcher l'exécution par défaut du bouton
-  event.preventDefault();
-  const catId = parseInt(document.querySelector(".activedButton").dataset.id);
-
-  prevPhotos(catId);
+          // Ajoutez toutes les images du projet à la modal
+          project.images.forEach((image) => {
+            const img = document.createElement("img");
+            img.src = image.img;
+            img.alt = image.alt;
+            img.classList.add("modal-image");
+            modalImages.appendChild(img);
+          });
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Une erreur s'est produite : ", error);
+    });
 });

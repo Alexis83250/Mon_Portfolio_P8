@@ -1,0 +1,231 @@
+[
+    {
+        "id": 1,
+        "title": "Projet BOOKI",
+        "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réaliser du HTML ainsi que du CSS afin de pouvoir obtenir le résultat souhaité par rapport à une maquette FIGMA",
+        "images": [
+    
+          {
+            "img": "/images/BOOKI/BOOKI-ORDI1.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image1"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-ORDI2.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image2"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-TABLET1.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image3"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-TABLET2.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image4"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-TABLET3.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image5"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-MOBIL1.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image6"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-MOBIL2.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image7"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-MOBIL3.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image8"
+          },
+          {
+            "img": "/images/BOOKI/BOOKI-MOBIL4.png",
+            "alt": "Photo du site du Projet 1",
+            "name": "image9"
+          }
+        ]
+      },
+
+      {
+        "id": 2,
+        "title": "Projet Sophie Bluel",
+        "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réaliser un code en Javascript me permettant de réaliser plusieurs requêtes. L'ajout de photos, la suppression, modification ainsi que l'authentification sur le site",
+        "images": [
+    
+          {
+            "img": "/images/BLUEL/BLUEL1.png",
+            "alt": "Photo du site du Projet 2",
+            "name": "image1"
+          },
+          {
+            "img": "/images/BLUEL/BLUEL2.png",
+            "alt": "Photo du site du Projet 2",
+            "name": "image2"
+          },
+          {
+            "img": "/images/BLUEL/BLUEL3.png",
+            "alt": "Photo du site du Projet 2",
+            "name": "image3"
+          },
+          {
+            "img": "/images/BLUEL/BLUEL4.png",
+            "alt": "Photo du site du Projet 2",
+            "name": "image4"
+          },
+          {
+            "img": "/images/BLUEL/BLUEL5.png",
+            "alt": "Photo du site du Projet 2",
+            "name": "image5"
+          }
+        ]
+      },
+
+      {
+        "id": 3,
+        "title": "Projet Nina Carducci",
+        "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réalisé une correction des erreurs dans le code ainsi qu'une réécriture de certaines parties afin d'améliorer les perfomances du site et son SEO",
+        "images": [
+    
+          {
+            "img": "/images/Carducci/nina1.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image1"
+          },
+          {
+            "img": "/images/Carducci/nina2.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image2"
+          },
+          {
+            "img": "/images/Carducci/nina3.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image3"
+          },
+          {
+            "img": "/images/Carducci/nina4.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image4"
+          },
+          {
+            "img": "/images/Carducci/nina5.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image5"
+          },
+          {
+            "img": "/images/Carducci/nina6.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image6"
+          },
+          {
+            "img": "/images/Carducci/nina7.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image7"
+          },
+          {
+            "img": "/images/Carducci/nina8.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image8"
+          },
+          {
+            "img": "/images/Carducci/nina9.png",
+            "alt": "Photo du site du Projet 3",
+            "name": "image9"
+          }
+          
+        ]
+      },
+
+      {
+        "id": 4,
+        "title": "Projet Kasa-immobilier",
+        "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réalisé la totalité du site à partir d'une maquette Figma, et tout cela en utilisant REACT",
+        "images": [
+    
+          {
+            "img": "/images/KASA/Kasa1.png",
+            "alt": "Photo du site du Projet 4",
+            "name": "image1"
+          },
+          {
+            "img": "/images/KASA/Kasa2.png",
+            "alt": "Photo du site du Projet 4",
+            "name": "image2"
+          },
+          {
+            "img": "/images/KASA/Kasa3.png",
+            "alt": "Photo du site du Projet 4",
+            "name": "image3"
+          },
+          {
+            "img": "/images/KASA/Kasa4.png",
+            "alt": "Photo du site du Projet 4",
+            "name": "image4"
+          },
+          {
+            "img": "/images/KASA/Kasa5.png",
+            "alt": "Photo du site du Projet 4",
+            "name": "image5"
+          },
+          {
+            "img": "/images/KASA/Kasa6.png",
+            "alt": "Photo du site du Projet 4",
+            "name": "image6"
+          }
+         
+        ]
+    },
+
+    {
+        "id": 5,
+        "title": "Projet Mon Vieux Grimoire",
+        "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du créer le Backend avec Nodes.js, Express ainsi que MongoDB afin que les requêtes réalisé depuis le React puisse fonctionner. Création d'utilisateur, connexion, ajout de livre ainsi que sa suppression, modifications et ajout de note pour l'ouvrage",
+        "images": [
+    
+          {
+            "img": "/images/Grimoire/Grimoire1.png",
+            "alt": "Photo du site du Projet 5",
+            "name": "image1"
+          },
+          {
+            "img": "/images/Grimoire/Grimoire2.png",
+            "alt": "Photo du site du Projet 5",
+            "name": "image2"
+          },
+          {
+            "img": "/images/Grimoire/Grimoire3.png",
+            "alt": "Photo du site du Projet 5",
+            "name": "image3"
+          },
+          {
+            "img": "/images/Grimoire/Grimoire4.png",
+            "alt": "Photo du site du Projet 5",
+            "name": "image4"
+          },
+          {
+            "img": "/images/Grimoire/Grimoire5.png",
+            "alt": "Photo du site du Projet 5",
+            "name": "image5"
+          },
+          {
+            "img": "/images/Grimoire/Grimoire6.png",
+            "alt": "Photo du site du Projet 5",
+            "name": "image6"
+          },
+          {
+            "img": "/images/Grimoire/Grimoire7.png",
+            "alt": "Photo du site du Projet 5",
+            "name": "image7"
+          }
+          
+         
+        ]
+    }
+    
+]
