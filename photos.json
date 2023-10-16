@@ -3,6 +3,7 @@
         "id": 1,
         "title": "Projet BOOKI",
         "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réaliser du HTML ainsi que du CSS afin de pouvoir obtenir le résultat souhaité par rapport à une maquette FIGMA",
+        "elements": "HTML & CSS",
         "images": [
     
           {
@@ -57,6 +58,7 @@
         "id": 2,
         "title": "Projet Sophie Bluel",
         "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réaliser un code en Javascript me permettant de réaliser plusieurs requêtes. L'ajout de photos, la suppression, modification ainsi que l'authentification sur le site",
+        "elements": "Javascript",
         "images": [
     
           {
@@ -91,6 +93,7 @@
         "id": 3,
         "title": "Projet Nina Carducci",
         "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réalisé une correction des erreurs dans le code ainsi qu'une réécriture de certaines parties afin d'améliorer les perfomances du site et son SEO",
+        "elements": "Débugging & SEO",
         "images": [
     
           {
@@ -146,6 +149,7 @@
         "id": 4,
         "title": "Projet Kasa-immobilier",
         "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du réalisé la totalité du site à partir d'une maquette Figma, et tout cela en utilisant REACT",
+        "elements": "REACT",
         "images": [
     
           {
@@ -186,6 +190,7 @@
         "id": 5,
         "title": "Projet Mon Vieux Grimoire",
         "Description": "Pour ce projet d'étude dans le cadre de ma formation avec OpenClassrooms, j'ai du créer le Backend avec Nodes.js, Express ainsi que MongoDB afin que les requêtes réalisé depuis le React puisse fonctionner. Création d'utilisateur, connexion, ajout de livre ainsi que sa suppression, modifications et ajout de note pour l'ouvrage",
+        "elements": "NodeJS, Express & MongoDB",
         "images": [
     
           {
