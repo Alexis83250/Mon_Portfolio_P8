@@ -13,7 +13,7 @@ main {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  background-image: url(/images/leone-venter-VieM9BdZKFo-unsplash.jpg);
+  background-image: url(/images/imgfond.webp);
   background-size: cover; 
   background-attachment: fixed;
   position: relative;
@@ -394,6 +394,7 @@ font-family: 'Young Serif', serif;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8); 
+  z-index: 4;
 }
 
 
