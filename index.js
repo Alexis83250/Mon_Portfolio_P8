@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
           projectDiv.style.order = 1;
         }
 
-        img.addEventListener("click", function () {
+        projectDiv.addEventListener("click", function () {
           modal.style.display = "block";
           hideNavBar();
           modalTitle.textContent = project.title || "Titre du projet";
